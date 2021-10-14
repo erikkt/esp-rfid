@@ -211,7 +211,8 @@ void ICACHE_FLASH_ATTR setup()
 	configMode = loadConfiguration();
 	if (!configMode)
 	{
-		fallbacktoAPMode();
+		ESP.restart(); // Added restart instead of fallbacktoAPMode. ESP will try wifi connect for 2 mins, then restart. 
+		// fallbacktoAPMode(); //Comment
 		configMode = false;
 	}
 	else {
