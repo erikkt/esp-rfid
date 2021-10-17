@@ -81,6 +81,7 @@ void ICACHE_FLASH_ATTR fallbacktoAPMode()
 	WiFi.softAPmacAddress(macAddr);
 	char ssid[15];
 	sprintf(ssid, "ESP-RFID-%02x%02x%02x", macAddr[3], macAddr[4], macAddr[5]);
+	// sprintf(ssid, "Carolina_IoT", macAddr[3], macAddr[4], macAddr[5]); // Erik
 	WiFi.mode(WIFI_AP);
 	bool success;
 	success = WiFi.softAP(ssid);
@@ -100,7 +101,7 @@ bool ICACHE_FLASH_ATTR connectSTA(const char *ssid, const char *password, byte b
 	Serial.print(ssid);
 #endif
 	unsigned long now = millis();
-	uint8_t timeout = 120; // define when to time out in seconds  WAS 20, NOW 120 = 2 mins
+	uint8_t timeout = 120; // define when to time out in seconds  WAS 20, NOW 120 = 2 mins Erik
 	Serial.println();
 	do
 	{
